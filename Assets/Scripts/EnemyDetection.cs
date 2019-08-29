@@ -4,15 +4,50 @@ using UnityEngine;
 
 public class EnemyDetection : MonoBehaviour
 {
+    [Header("Attributes")]
     public float fireRange = 8f;
     public float rotatingSpeed = 10f;
+    public float fireRate = 2f; //(bullet/s)
+    public float bulletSpeed = 50f;
+    public float damage = 10f;
+
+    float fireCountdown = 0f;
+
     Transform currentTarget;
 
+    [Header("Unity Setup Field")]
+    public GameObject bulletPrefab;
+    public Transform bulletInitialPosition;
     public string enemiesTag = "Enemies";
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.transform.position, fireRange);
+    }
 
     private void Start()
     {
         InvokeRepeating("updateTarget", 0f, 0.5f);
+    }
+
+    private void Update()
+    {
+        if (currentTarget == null)
+        {
+            return;
+        }
+
+        lockOnTarget();
+
+        if(fireCountdown <= 0)
+        {
+            loadTheBullet();
+
+            //Start count down again
+            fireCountdown = 1f / fireRate;
+        }
+        fireCountdown -= Time.deltaTime;
     }
 
     void updateTarget()
@@ -32,16 +67,6 @@ public class EnemyDetection : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(currentTarget == null)
-        {
-            return;
-        }
-
-        lockOnTarget();
-    }
-
     void lockOnTarget()
     {
         //Vector3 temp = currentTarget.position - this.transform.position;
@@ -54,9 +79,19 @@ public class EnemyDetection : MonoBehaviour
         this.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
-    private void OnDrawGizmosSelected()
+    void loadTheBullet()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(this.transform.position, fireRange);
+        GameObject temp = Instantiate<GameObject>(bulletPrefab, bulletInitialPosition.position, bulletInitialPosition.rotation);
+        Bullet bullet = temp.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            bullet.setTarget(currentTarget);
+        }
+    }
+
+    public float getTurretDamage()
+    {
+        return damage;
     }
 }
