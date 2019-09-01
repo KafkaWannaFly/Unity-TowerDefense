@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour
     public float maxY = 70f;
     public float cameraBondary = 70f;
 
-    private bool isMoving = true;
+    //private bool isMoving = true;
     private Vector3 cameraStandardPosition;
     private void Awake()
     {

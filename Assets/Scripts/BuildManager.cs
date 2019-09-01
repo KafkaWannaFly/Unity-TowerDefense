@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -16,15 +15,32 @@ public class BuildManager : MonoBehaviour
     }
 
     public GameObject standardTurretPrefab;
+
     GameObject turretToBuild;
 
     private void Start()
     {
-        turretToBuild = standardTurretPrefab;
+        //turretToBuild = standardTurretPrefab;
+    }
+
+    public void setTurretToBuild(GameObject turret)
+    {
+        turretToBuild = turret;
+
+        Debug.Log("BuildManager.cs: setTurretToBuild");
     }
 
     public GameObject getTurretToBuild()
     {
         return turretToBuild;
+    }
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("BuildManager: set turretToBuild = null");
+            turretToBuild = null;
+        }
     }
 }
