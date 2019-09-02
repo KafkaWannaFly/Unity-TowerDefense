@@ -83,6 +83,7 @@ public class EnemyDetection : MonoBehaviour
     {
         GameObject temp = Instantiate<GameObject>(bulletPrefab, bulletInitialPosition.position, bulletInitialPosition.rotation);
         Bullet bullet = temp.GetComponent<Bullet>();
+        bullet.setBulletSpeed(bulletSpeed);
 
         if (bullet != null)
         {

@@ -154,12 +154,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b06f81999352b4dacbe5012d34045a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRange: 8
+  fireRange: 15
   rotatingSpeed: 10
   fireRate: 2
   bulletSpeed: 50
   damage: 10
-  bulletPrefab: {fileID: 4971607967359064267, guid: 6e10379dd9c27bc438d907ec869c2901,
+  bulletPrefab: {fileID: 5545950015961426814, guid: 6e10379dd9c27bc438d907ec869c2901,
     type: 3}
   bulletInitialPosition: {fileID: 1054289440541264239}
   enemiesTag: Enemies

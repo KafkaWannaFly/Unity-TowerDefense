@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4971607967359064267
+--- !u!1 &5545950015961426814
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5175165280757999393}
-  - component: {fileID: 1229010666206019645}
-  - component: {fileID: 5395560582349569427}
-  - component: {fileID: 5223933755080674147}
+  - component: {fileID: 3469112892616570306}
+  - component: {fileID: 5134351743698917944}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Untagged
@@ -19,35 +17,84 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5175165280757999393
+--- !u!4 &3469112892616570306
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971607967359064267}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.4250392, y: 0.56328946, z: 0.00018384344}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_Children: []
+  m_GameObject: {fileID: 5545950015961426814}
+  m_LocalRotation: {x: -0.70707995, y: 0.0061706076, z: 0.0061706086, w: 0.7070798}
+  m_LocalPosition: {x: 44.67, y: 4.75, z: -66.53}
+  m_LocalScale: {x: 400, y: 400.00018, z: 400.0004}
+  m_Children:
+  - {fileID: 8659015938222581744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1229010666206019645
+--- !u!114 &5134351743698917944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545950015961426814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a63c7e495e782c479b367c15ed025f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cartouche: {fileID: 4707621102146635377, guid: 6ae62b975d9e88c4da6a01b82728bcca,
+    type: 3}
+  explosionRadius: 8
+  enemyTag: Enemies
+--- !u!1 &8864301647266863130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8659015938222581744}
+  - component: {fileID: 3383525798094848236}
+  - component: {fileID: 8438058751696289090}
+  m_Layer: 0
+  m_Name: Missile GFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8659015938222581744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864301647266863130}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 3469112892616570306}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &3383525798094848236
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971607967359064267}
+  m_GameObject: {fileID: 8864301647266863130}
   m_Mesh: {fileID: -4436863061088633788, guid: 878c5d96d0dd1d04093624c3193f8ce9, type: 3}
---- !u!23 &5395560582349569427
+--- !u!23 &8438058751696289090
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971607967359064267}
+  m_GameObject: {fileID: 8864301647266863130}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -78,17 +125,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &5223933755080674147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4971607967359064267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a63c7e495e782c479b367c15ed025f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cartouche: {fileID: 6098285081069517595, guid: e5c5ac3f2f314454f96224050eceb2c9,
-    type: 3}
