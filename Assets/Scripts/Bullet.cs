@@ -63,7 +63,7 @@ public class Bullet : MonoBehaviour
 
         Destroy(this.gameObject);
         GameObject hitEffect = Instantiate(cartouche, target.position, target.rotation);
-        //Destroy(hitEffect, 0.3f);
+        //Destroy(hitEffect, 3f);
         return;
     }
 

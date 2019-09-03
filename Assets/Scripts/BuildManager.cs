@@ -41,6 +41,8 @@ public class BuildManager : MonoBehaviour
         {
             Debug.Log("BuildManager: set turretToBuild = null");
             turretToBuild = null;
+
+            //Shop.shop.setSelectedItem(null);
         }
     }
 }

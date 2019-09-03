@@ -2,16 +2,6 @@
 
 public class Shop : MonoBehaviour
 {
-    //Singleton
-    static Shop shop;
-    private void Awake()
-    {
-        if (shop == null)
-        {
-            shop = this;
-        }
-    }
-
     GameObject selectedItem;
     GameObject cursor;
 

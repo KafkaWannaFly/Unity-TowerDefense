@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2821998195245227476}
   - component: {fileID: 7634929718603054796}
   - component: {fileID: 5452663332928714997}
+  - component: {fileID: 1549905500}
   m_Layer: 0
   m_Name: Explosion Light
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516731521582890206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.8, z: -0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4707621102146635381}
@@ -88,7 +89,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 10, y: 0, z: -1.7014118e+38, w: 0.3515625}
+  m_BoundingSphereOverride: {x: 0, y: 524288, z: 9.1e-43, w: 1e-44}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -111,6 +112,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1549905500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516731521582890206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb71b43939add44388fd0cebcc589c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  afterSec: 0.1
 --- !u!1 &4707621102146635377
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,6 +137,7 @@ GameObject:
   - component: {fileID: 4707621102146635380}
   - component: {fileID: 4707621102146635379}
   - component: {fileID: 4707621102146635378}
+  - component: {fileID: 6816524754716251969}
   m_Layer: 0
   m_Name: ExplosionFX
   m_TagString: Untagged
@@ -4937,6 +4952,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2170.7312, y: 107.38001, z: 408.46768}
   m_Center: {x: -1083.1412, y: 3.9576414, z: 8.894286}
+--- !u!114 &6816524754716251969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4707621102146635377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fb71b43939add44388fd0cebcc589c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  afterSec: 1.5
 --- !u!1 &6730631936598797129
 GameObject:
   m_ObjectHideFlags: 0
