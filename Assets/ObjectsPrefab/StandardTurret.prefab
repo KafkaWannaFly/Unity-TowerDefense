@@ -147,7 +147,8 @@ MonoBehaviour:
   rotatingSpeed: 10
   fireRate: 2
   bulletSpeed: 100
-  damage: 10
+  damage: 25
+  cost: 50
   bulletPrefab: {fileID: 6881365094883095007, guid: 97b3333a8aa55194781abff00301185f,
     type: 3}
   bulletInitialPosition: {fileID: 8071653486363149817}

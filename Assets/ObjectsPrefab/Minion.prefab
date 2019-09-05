@@ -87,7 +87,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4473058646966430005}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -105,4 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937d8794662f2fe4f98fa5ee720d3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 30
+  damage: 30
+  HP: 100
+  goldValue: 50
+  dieEffect: {fileID: 2122246408276665192, guid: 35e56949fbdd868438e6c58895af3a3c,
+    type: 3}

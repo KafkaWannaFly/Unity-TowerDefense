@@ -10,15 +10,21 @@ public class Bullet : MonoBehaviour
 
     Transform target;
     float speed = 50f;
+    int damage;
 
     public void setTarget(Transform _target)
     {
-        target = _target;
+        this.target = _target;
     }
 
     public void setBulletSpeed(float _speed)
     {
-        speed = _speed;
+        this.speed = _speed;
+    }
+
+    public void setBulletDamage(int _damage)
+    {
+        this.damage = _damage;
     }
 
     private void Update()
@@ -69,7 +75,12 @@ public class Bullet : MonoBehaviour
 
     void dealDamage(GameObject enemy)
     {
-        Destroy(enemy);
+        Minion creep = enemy.GetComponent<Minion>();
+        if(creep == null)
+        {
+            return;
+        }
+        creep.takeDamage(this.damage);
     }
 
     private void OnDrawGizmosSelected()

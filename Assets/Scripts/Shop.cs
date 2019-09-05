@@ -9,15 +9,11 @@ public class Shop : MonoBehaviour
     {
         selectedItem = item;
 
-        BuildManager buildManager = BuildManager.instance;
-        buildManager.setTurretToBuild(selectedItem);
-
-        Debug.Log("Shop.cs: setSelectedItem()");
+        BuildManager.instance.setTurretToBuild(selectedItem);
     }
 
     public GameObject getSelectedItem()
     {
         return selectedItem;
     }
-
 }

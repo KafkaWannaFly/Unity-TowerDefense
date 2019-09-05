@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDetection : MonoBehaviour
+public class MyTurret : MonoBehaviour
 {
-    [Header("Attributes")]
+    [Header("General")]
     public float fireRange = 8f;
     public float rotatingSpeed = 10f;
+    public int damage = 30;
+    public int cost;
+
+    [Header("Laser")]
+    public bool useLaser;
+    public LineRenderer laserBulletEffect;
+
+    [Header("Bullet")]
     public float fireRate = 2f; //(bullet/s)
     public float bulletSpeed = 50f;
-    public float damage = 10f;
 
     float fireCountdown = 0f;
+    LineRenderer laser;
 
     Transform currentTarget;
 
@@ -28,6 +36,10 @@ public class EnemyDetection : MonoBehaviour
 
     private void Start()
     {
+        if(this.useLaser)
+        {
+            this.laser = Instantiate<LineRenderer>(laserBulletEffect, this.bulletInitialPosition.position, Quaternion.identity);
+        }
         InvokeRepeating("updateTarget", 0f, 0.5f);
     }
 
@@ -35,19 +47,32 @@ public class EnemyDetection : MonoBehaviour
     {
         if (currentTarget == null)
         {
+            if(useLaser)
+            {
+                laser.enabled = false;
+            }
+
             return;
         }
 
         lockOnTarget();
 
-        if(fireCountdown <= 0)
+        if (useLaser == true)   //Use laser here
         {
-            loadTheBullet();
-
-            //Start count down again
-            fireCountdown = 1f / fireRate;
+            laser.enabled = true;
+            loadLaserBeam();
         }
-        fireCountdown -= Time.deltaTime;
+        else    //Use bullet here
+        {
+            if (fireCountdown <= 0)
+            {
+                loadTheBullet();
+
+                //Start count down again
+                fireCountdown = 1f / fireRate;
+            }
+            fireCountdown -= Time.deltaTime;
+        }
     }
 
     void updateTarget()
@@ -83,15 +108,22 @@ public class EnemyDetection : MonoBehaviour
     {
         GameObject temp = Instantiate<GameObject>(bulletPrefab, bulletInitialPosition.position, bulletInitialPosition.rotation);
         Bullet bullet = temp.GetComponent<Bullet>();
-        bullet.setBulletSpeed(bulletSpeed);
 
         if (bullet != null)
         {
+            bullet.setBulletSpeed(this.bulletSpeed);
+            bullet.setBulletDamage(this.damage);
             bullet.setTarget(currentTarget);
         }
     }
 
-    public float getTurretDamage()
+    void loadLaserBeam()
+    {
+        this.laser.SetPosition(0, this.bulletInitialPosition.position);
+        this.laser.SetPosition(1, this.currentTarget.position);
+    }
+
+    public int getTurretDamage()
     {
         return damage;
     }

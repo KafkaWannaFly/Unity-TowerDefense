@@ -18,11 +18,32 @@ public class Node : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        if (currentTurret != null)  //Already built something on
+        {
+            rend.material.color = Color.red;
+            return;
+        }
+
+        if (BuildManager.instance.getTurretToBuild() != null)   //Not enough money?
+        {
+            if(BuildManager.instance.getTurretToBuild().GetComponent<MyTurret>().cost > 
+                                                                                PlayerStatus.instance.getCurrentMoney())
+            {
+                rend.material.color = Color.red;
+                return;
+            }
+        }
+        else    //Currently not seclecting anything
         {
             return;
         }
         rend.material.color = onMouseColor;
+        
     }
 
     private void OnMouseExit()
@@ -36,6 +57,22 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //if(currentTurret == null)
+        //{
+        //    return;
+        //}
+
+        if(BuildManager.instance.getTurretToBuild() == null)
+        {
+            return;
+        }
+        MyTurret myTurret = BuildManager.instance.getTurretToBuild().GetComponent<MyTurret>();
+
+        if(PlayerStatus.instance.canWeBuyThisTurret(myTurret) == false)
+        {
+            return;
+        }
+
         buildTurret();
     }
 
@@ -53,9 +90,13 @@ public class Node : MonoBehaviour
         currentTurret = turret;
         if(turret == null)
         {
-            Debug.Log("From Node.cs: turretToBuild is a null");
             return;
         }
+
         turret = Instantiate(turret, this.transform.position + offsetTurretPosition, this.transform.rotation);
+
+        BuildManager.instance.showBuildEffect(this.transform.position + offsetTurretPosition);
+
+        PlayerStatus.instance.buyTurret(turret.GetComponent<MyTurret>());
     }
 }

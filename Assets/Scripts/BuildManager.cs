@@ -5,6 +5,11 @@ public class BuildManager : MonoBehaviour
 {
     //Singleton
     public static BuildManager instance;
+
+    public GameObject buildEffect;
+
+    GameObject turretToBuild;
+
     private void Awake()
     {
         if(instance != null)
@@ -14,20 +19,24 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject standardTurretPrefab;
-
-    GameObject turretToBuild;
-
     private void Start()
     {
         //turretToBuild = standardTurretPrefab;
     }
 
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            turretToBuild = null;
+
+            //Shop.shop.setSelectedItem(null);
+        }
+    }
+
     public void setTurretToBuild(GameObject turret)
     {
         turretToBuild = turret;
-
-        Debug.Log("BuildManager.cs: setTurretToBuild");
     }
 
     public GameObject getTurretToBuild()
@@ -35,14 +44,8 @@ public class BuildManager : MonoBehaviour
         return turretToBuild;
     }
 
-    private void Update()
+    public void showBuildEffect(Vector3 buildPosition)
     {
-        if(Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("BuildManager: set turretToBuild = null");
-            turretToBuild = null;
-
-            //Shop.shop.setSelectedItem(null);
-        }
+        Instantiate(buildEffect, buildPosition, Quaternion.identity);
     }
 }
