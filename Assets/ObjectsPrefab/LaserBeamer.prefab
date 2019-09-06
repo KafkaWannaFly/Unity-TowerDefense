@@ -76,11 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b06f81999352b4dacbe5012d34045a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRange: 20
+  fireRange: 10
   rotatingSpeed: 10
   damage: 30
   cost: 350
   useLaser: 1
+  slowDebuffPercentage: 0.4
   laserBulletEffect: {fileID: 4287808794011870611, guid: 485e05ea53247a947847992babfea2af,
     type: 3}
   fireRate: 2

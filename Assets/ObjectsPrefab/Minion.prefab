@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937d8794662f2fe4f98fa5ee720d3795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  speed: 20
   damage: 30
   HP: 100
   goldValue: 50

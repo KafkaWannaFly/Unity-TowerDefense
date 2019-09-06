@@ -3,9 +3,11 @@
 public class Minion : MonoBehaviour
 {
     [Header("Attribute")]
-    public float speed = 20f;
+    public float startSpeed = 20f;
+    //[HideInInspector]
+    public float speed;
     public int damage;
-    public int HP;
+    public float HP;
     public int goldValue;
 
     [Header("Unity Setup Field")]
@@ -13,6 +15,11 @@ public class Minion : MonoBehaviour
 
     Transform target;
     int turnPointNum = 0;
+
+    private void Start()
+    {
+        speed = startSpeed;
+    }
 
     private void Update()
     {
@@ -50,7 +57,7 @@ public class Minion : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void takeDamage(int amount)
+    public void takeDamage(float amount)
     {
         HP -= amount;
         if(this.HP <= 0)
@@ -58,6 +65,11 @@ public class Minion : MonoBehaviour
             PlayerStatus.instance.increaseMoney(this.goldValue);
             die();
         }
+    }
+
+    public void takeSlowDebuff(float slowPercent)
+    {
+        this.speed = this.startSpeed * (1 - slowPercent);
     }
 
     void die()

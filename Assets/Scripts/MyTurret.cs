@@ -12,6 +12,8 @@ public class MyTurret : MonoBehaviour
 
     [Header("Laser")]
     public bool useLaser;
+    [Range(0,1)]
+    public float slowDebuffPercentage;
     public LineRenderer laserBulletEffect;
 
     [Header("Bullet")]
@@ -22,6 +24,7 @@ public class MyTurret : MonoBehaviour
     LineRenderer laser;
 
     Transform currentTarget;
+    Minion laserTarget;
 
     [Header("Unity Setup Field")]
     public GameObject bulletPrefab;
@@ -61,6 +64,11 @@ public class MyTurret : MonoBehaviour
         {
             laser.enabled = true;
             loadLaserBeam();
+
+            laserTarget = currentTarget.GetComponent<Minion>();
+
+            laserTarget.takeSlowDebuff(slowDebuffPercentage);
+            laserTarget.takeDamage(damage * Time.deltaTime);
         }
         else    //Use bullet here
         {
@@ -88,6 +96,14 @@ public class MyTurret : MonoBehaviour
                 {
                     currentTarget = enemiesList[i].transform;
                 }
+            }
+        }
+
+        if(laserTarget != null && currentTarget != null)
+        {
+            if(currentTarget.GetComponent<Minion>().speed != laserTarget.speed) //Laser changes target
+            {
+                laserTarget.takeSlowDebuff(0);  //Clear debuff
             }
         }
     }
@@ -125,6 +141,6 @@ public class MyTurret : MonoBehaviour
 
     public int getTurretDamage()
     {
-        return damage;
+        return this.damage;
     }
 }
