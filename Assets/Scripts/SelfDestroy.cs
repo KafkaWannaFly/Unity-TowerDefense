@@ -10,8 +10,4 @@ public class SelfDestroy : MonoBehaviour
         Destroy(this.gameObject, afterSec);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("We hit something");
-    }
 }

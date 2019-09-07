@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2122246408276665196}
   - component: {fileID: 2122246408276665197}
   - component: {fileID: 2122246408276665194}
-  - component: {fileID: 2122246408276665195}
   - component: {fileID: 8250216305456084445}
   m_Layer: 0
   m_Name: Die Effect
@@ -3792,7 +3791,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 256
     maxCollisionShapes: 256
     quality: 1
     voxelSize: 1
@@ -4812,19 +4811,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!65 &2122246408276665195
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2122246408276665192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2170.7312, y: 107.38001, z: 408.46768}
-  m_Center: {x: -1083.1412, y: 3.9576414, z: 8.894286}
 --- !u!114 &8250216305456084445
 MonoBehaviour:
   m_ObjectHideFlags: 0

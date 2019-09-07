@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MyTurret : MonoBehaviour
 {
@@ -12,11 +10,14 @@ public class MyTurret : MonoBehaviour
 
     [Header("Laser")]
     public bool useLaser;
+    public LineRenderer laserBulletEffect;
+    public ParticleSystem laserHitEffect;
+    public ParticleSystem glowEffect;
+    public Light impactLight;
     [Range(0,1)]
     public float slowDebuffPercentage;
-    public LineRenderer laserBulletEffect;
 
-    [Header("Bullet")]
+    [Header("Bullet (default)")]
     public float fireRate = 2f; //(bullet/s)
     public float bulletSpeed = 50f;
 
@@ -41,7 +42,11 @@ public class MyTurret : MonoBehaviour
     {
         if(this.useLaser)
         {
-            this.laser = Instantiate<LineRenderer>(laserBulletEffect, this.bulletInitialPosition.position, Quaternion.identity);
+            //this.laser = Instantiate<LineRenderer>(laserBulletEffect, this.bulletInitialPosition.position, Quaternion.identity);
+            this.laser = laserBulletEffect;
+            laserHitEffect.Stop();
+            glowEffect.Stop();
+            impactLight.enabled = false;
         }
         InvokeRepeating("updateTarget", 0f, 0.5f);
     }
@@ -53,6 +58,9 @@ public class MyTurret : MonoBehaviour
             if(useLaser)
             {
                 laser.enabled = false;
+                laserHitEffect.Stop();
+                glowEffect.Stop();
+                impactLight.enabled = false;
             }
 
             return;
@@ -62,13 +70,9 @@ public class MyTurret : MonoBehaviour
 
         if (useLaser == true)   //Use laser here
         {
-            laser.enabled = true;
             loadLaserBeam();
-
-            laserTarget = currentTarget.GetComponent<Minion>();
-
-            laserTarget.takeSlowDebuff(slowDebuffPercentage);
-            laserTarget.takeDamage(damage * Time.deltaTime);
+            shootLaserBeam();
+            generateLaserHitEffect();
         }
         else    //Use bullet here
         {
@@ -135,8 +139,38 @@ public class MyTurret : MonoBehaviour
 
     void loadLaserBeam()
     {
+        laser.enabled = true;
         this.laser.SetPosition(0, this.bulletInitialPosition.position);
         this.laser.SetPosition(1, this.currentTarget.position);
+    }
+
+    void shootLaserBeam()
+    {
+        laserTarget = currentTarget.GetComponent<Minion>();
+
+        laserTarget.takeSlowDebuff(slowDebuffPercentage);
+        laserTarget.takeDamage(damage * Time.deltaTime);
+    }
+
+    void generateLaserHitEffect()
+    {
+        Vector3 temp = this.bulletInitialPosition.position - this.currentTarget.position;
+        laserHitEffect.transform.rotation = Quaternion.LookRotation(temp);
+
+        temp = Vector3.zero;
+        temp.z = this.currentTarget.transform.localScale.z * 0.5f;
+        laserHitEffect.transform.position = this.currentTarget.position + temp;
+
+        laserHitEffect.Play();
+
+        impactLight.enabled = true;
+       // generateGlowEffect();
+    }
+
+    void generateGlowEffect()
+    {
+        glowEffect.transform.position = laserHitEffect.transform.position;
+        glowEffect.Play();
     }
 
     public int getTurretDamage()
