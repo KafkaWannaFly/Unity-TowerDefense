@@ -32,6 +32,12 @@ public class CameraController : MonoBehaviour
             return;
         }
 
+        if(PlayerStatus.gameIsOver)
+        {
+            this.enabled = false;
+            return;
+        }
+
         if (Input.GetKey(KeyCode.W) || Input.mousePosition.y >= Screen.height - borderThickness)
         {
             this.transform.Translate(Vector3.forward * cameraSpeed * Time.deltaTime, Space.World);
@@ -47,6 +53,10 @@ public class CameraController : MonoBehaviour
         if (Input.GetKey(KeyCode.D) || Input.mousePosition.x >= Screen.width - borderThickness)
         {
             this.transform.Translate(Vector3.right * cameraSpeed * Time.deltaTime, Space.World);
+        }
+        if(Input.GetKey(KeyCode.Space))
+        {
+            this.resetToStandardPosition();
         }
     }
 
@@ -98,5 +108,10 @@ public class CameraController : MonoBehaviour
         }
 
         return false;
+    }
+
+    void resetToStandardPosition()
+    {
+        this.transform.position = this.cameraStandardPosition;
     }
 }

@@ -29,8 +29,12 @@ public class BuildManager : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
             turretToBuild = null;
-
             //Shop.shop.setSelectedItem(null);
+        }
+
+        if(PlayerStatus.gameIsOver)
+        {
+            turretToBuild = null;
         }
     }
 

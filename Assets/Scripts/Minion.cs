@@ -14,10 +14,11 @@ public class Minion : MonoBehaviour
     public GameObject dieEffect;
 
     Transform target;
-    int turnPointNum = 0;
+    int turnPointNum;
 
     private void Start()
     {
+        turnPointNum = 0;
         speed = startSpeed;
     }
 
@@ -28,7 +29,8 @@ public class Minion : MonoBehaviour
 
     void navigateToEndPoint()
     {
-        target = TurnPoints.turnPoints[turnPointNum];
+        target = TurnPoints.turnPoints[turnPointNum].transform;
+
         Vector3 direction = target.position - this.transform.position;
 
         this.transform.Translate(direction.normalized * Time.deltaTime * speed, Space.World);
@@ -41,14 +43,14 @@ public class Minion : MonoBehaviour
 
     void getNextTurnPoint()
     {
-        if (turnPointNum >= TurnPoints.turnPoints.Count - 1)
+        if (turnPointNum >= TurnPoints.turnPoints.Length - 1)
         {
             theEnd();
             return;
         }
 
         turnPointNum++;
-        target = TurnPoints.turnPoints[turnPointNum];
+        target = TurnPoints.turnPoints[turnPointNum].transform;
     }
 
     void theEnd()

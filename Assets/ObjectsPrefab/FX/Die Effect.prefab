@@ -3795,7 +3795,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 1
     voxelSize: 1
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4823,4 +4823,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb71b43939add44388fd0cebcc589c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  afterSec: 1
+  afterSec: 0.7

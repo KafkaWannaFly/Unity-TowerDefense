@@ -8,9 +8,11 @@ public class PlayerStatus : MonoBehaviour
     public int startMoney = 250;
     public int HP;
 
+    public GameObject gameOver;
     public Text textMoney;
     public Text textHP;
 
+    static public bool gameIsOver;
     int currentMoney;
 
     private void Awake()
@@ -23,6 +25,8 @@ public class PlayerStatus : MonoBehaviour
     private void Start()
     {
         currentMoney = startMoney;
+
+        gameIsOver = false;
     }
 
     private void Update()
@@ -75,7 +79,8 @@ public class PlayerStatus : MonoBehaviour
 
     public void endGame()
     {
-        //Debug.Log("END GAME");
-        //Application.Quit();
+        gameIsOver = true;
+
+        gameOver.SetActive(true);
     }
 }
