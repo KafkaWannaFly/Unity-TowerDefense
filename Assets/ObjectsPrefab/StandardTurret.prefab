@@ -87,7 +87,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8071653486363149817}
-  - component: {fileID: 2201774049945495683}
   - component: {fileID: 3854785350638089575}
   m_Layer: 0
   m_Name: StandardTurret
@@ -112,25 +111,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!95 &2201774049945495683
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070806668542932970}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 7dcc954640ec83a4ca0afbcedd75965f, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3854785350638089575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,16 +123,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b06f81999352b4dacbe5012d34045a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRange: 50
+  fireRange: 10
   rotatingSpeed: 10
-  fireRate: 2
-  bulletSpeed: 100
   damage: 25
   cost: 50
+  useLaser: 0
+  laserBulletEffect: {fileID: 0}
+  laserHitEffect: {fileID: 0}
+  glowEffect: {fileID: 0}
+  impactLight: {fileID: 0}
+  slowDebuffPercentage: 0
+  fireRate: 2
+  bulletSpeed: 100
+  isUpgrade: 0
   bulletPrefab: {fileID: 6881365094883095007, guid: 97b3333a8aa55194781abff00301185f,
     type: 3}
   bulletInitialPosition: {fileID: 8071653486363149817}
   enemiesTag: Enemies
+  upgradedVersion: {fileID: 5070806668542932970, guid: 3d711bf5c7524054eb12584c56f926c9,
+    type: 3}
 --- !u!1 &5342757032012133177
 GameObject:
   m_ObjectHideFlags: 0

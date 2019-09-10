@@ -11,18 +11,39 @@ public class CameraController : MonoBehaviour
     public float maxY = 70f;
     public float cameraBondary = 70f;
 
-    //private bool isMoving = true;
+    private bool lockCamera;
     private Vector3 cameraStandardPosition;
     private void Awake()
     {
         cameraStandardPosition = this.transform.position;
     }
 
+    private void Start()
+    {
+        this.lockCamera = false;
+    }
+
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+           if(this.lockCamera == true)
+            {
+                this.lockCamera = false;
+            }
+            else
+            {
+                this.lockCamera = true;
+            }
+        }
+
+        if (this.lockCamera)
+            return;
+
         keyController();
 
         scrollController();
+
     }
 
     void keyController()

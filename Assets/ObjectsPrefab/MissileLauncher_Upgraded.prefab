@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 3072761428584331569}
   - component: {fileID: 5990168975189550866}
   m_Layer: 0
-  m_Name: MissileLauncher
+  m_Name: MissileLauncher_Upgraded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 2089667915767647010}
   m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
   m_LocalPosition: {x: 51.85894, y: 0.3800001, z: -50.21464}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1961968254871831451}
   - {fileID: 4061533722259343682}
@@ -154,10 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b06f81999352b4dacbe5012d34045a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRange: 10
+  fireRange: 20
   rotatingSpeed: 10
-  damage: 40
-  cost: 200
+  damage: 100
+  cost: 300
   useLaser: 0
   laserBulletEffect: {fileID: 0}
   laserHitEffect: {fileID: 0}
@@ -171,8 +171,7 @@ MonoBehaviour:
     type: 3}
   bulletInitialPosition: {fileID: 1054289440541264239}
   enemiesTag: Enemies
-  upgradedVersion: {fileID: 2089667915767647010, guid: 911f2a197643bcb46bfbd44b5ab7c61e,
-    type: 3}
+  upgradedVersion: {fileID: 0}
 --- !u!1 &3986007666671525215
 GameObject:
   m_ObjectHideFlags: 0

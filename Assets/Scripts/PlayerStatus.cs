@@ -41,6 +41,7 @@ public class PlayerStatus : MonoBehaviour
         showCurrentHP();
     }
 
+    //True if we can. Vice versa
     public bool canWeBuyThisTurret(MyTurret turret)
     {
         if (turret == null)

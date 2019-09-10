@@ -21,6 +21,9 @@ public class MyTurret : MonoBehaviour
     public float fireRate = 2f; //(bullet/s)
     public float bulletSpeed = 50f;
 
+    [HideInInspector]
+    public bool isUpgrade;
+
     float fireCountdown = 0f;
     LineRenderer laser;
 
@@ -31,6 +34,7 @@ public class MyTurret : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletInitialPosition;
     public string enemiesTag = "Enemies";
+    public GameObject upgradedVersion;
 
     private void OnDrawGizmosSelected()
     {
@@ -40,6 +44,8 @@ public class MyTurret : MonoBehaviour
 
     private void Start()
     {
+        this.isUpgrade = false;
+
         if(this.useLaser)
         {
             //this.laser = Instantiate<LineRenderer>(laserBulletEffect, this.bulletInitialPosition.position, Quaternion.identity);
@@ -48,6 +54,7 @@ public class MyTurret : MonoBehaviour
             glowEffect.Stop();
             impactLight.enabled = false;
         }
+
         InvokeRepeating("updateTarget", 0f, 0.5f);
     }
 
@@ -177,4 +184,5 @@ public class MyTurret : MonoBehaviour
     {
         return this.damage;
     }
+
 }

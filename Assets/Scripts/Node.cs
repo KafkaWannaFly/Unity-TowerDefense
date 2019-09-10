@@ -57,18 +57,24 @@ public class Node : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //if(currentTurret == null)
-        //{
-        //    return;
-        //}
+        if (currentTurret != null)
+        {
+            BuildManager.instance.nodeUI.setNodeUI(this);
+        }
 
-        if(BuildManager.instance.getTurretToBuild() == null)
+        if (BuildManager.instance.getTurretToBuild() == null)
         {
             return;
         }
+
         MyTurret myTurret = BuildManager.instance.getTurretToBuild().GetComponent<MyTurret>();
 
         if(PlayerStatus.instance.canWeBuyThisTurret(myTurret) == false)
+        {
+            return;
+        }
+
+        if(EventSystem.current.IsPointerOverGameObject())
         {
             return;
         }
@@ -77,26 +83,54 @@ public class Node : MonoBehaviour
     }
 
     void buildTurret()
-    {
-        //Already had a turret on it
+    {        
         if(currentTurret != null)
         {
-            Debug.Log("Can't build turret. TODO: Make UI");
             return;
         }
-        
         //GameObject turretToBuild = BuildManager.instance.getTurretToBuild();
         GameObject turret = BuildManager.instance.getTurretToBuild();
-        currentTurret = turret;
         if(turret == null)
         {
             return;
         }
 
-        turret = Instantiate(turret, this.transform.position + offsetTurretPosition, this.transform.rotation);
+        this.currentTurret = Instantiate(turret, this.transform.position + offsetTurretPosition, this.transform.rotation);
 
         BuildManager.instance.showBuildEffect(this.transform.position + offsetTurretPosition);
 
         PlayerStatus.instance.buyTurret(turret.GetComponent<MyTurret>());
+    }
+
+    public void upgradeTurret()
+    {
+        MyTurret myTurret = currentTurret.GetComponent<MyTurret>();
+
+        if(myTurret.isUpgrade)
+        {
+            return;
+        }
+        else
+        {
+            if (myTurret.upgradedVersion == null)
+                return;
+            MyTurret upgradedTurret = myTurret.upgradedVersion.GetComponent<MyTurret>();
+
+            if(PlayerStatus.instance.canWeBuyThisTurret(upgradedTurret))
+            {
+                PlayerStatus.instance.buyTurret(upgradedTurret);
+
+                Destroy(this.currentTurret);
+
+                this.currentTurret = Instantiate(myTurret.upgradedVersion, this.transform.position + offsetTurretPosition, this.transform.rotation);
+
+                BuildManager.instance.showBuildEffect(this.transform.position + offsetTurretPosition);
+            }
+        }
+    }
+
+    public GameObject getCurrentTurret()
+    {
+        return this.currentTurret;
     }
 }

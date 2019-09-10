@@ -4887,7 +4887,7 @@ GameObject:
   - component: {fileID: 4091544483038286182}
   - component: {fileID: 53637382324009020}
   m_Layer: 0
-  m_Name: LaserBeamer
+  m_Name: LaserBeamer_Upgraded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4902,7 +4902,7 @@ Transform:
   m_GameObject: {fileID: 5064431395858877989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1517214556114265209}
   - {fileID: 4723655729505306268}
@@ -4923,25 +4923,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b06f81999352b4dacbe5012d34045a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireRange: 10
+  fireRange: 20
   rotatingSpeed: 10
-  damage: 50
-  cost: 300
+  damage: 100
+  cost: 350
   useLaser: 1
   laserBulletEffect: {fileID: 53637382324009020}
   laserHitEffect: {fileID: 6479897959092930035}
   glowEffect: {fileID: 3884983268985370260}
   impactLight: {fileID: 1379563543}
-  slowDebuffPercentage: 0.4
+  slowDebuffPercentage: 0.7
   fireRate: 2
   bulletSpeed: 50
-  isUpgrade: 0
   bulletPrefab: {fileID: 6881365094883095007, guid: 97b3333a8aa55194781abff00301185f,
     type: 3}
   bulletInitialPosition: {fileID: 1517214556114265209}
   enemiesTag: Enemies
-  upgradedVersion: {fileID: 5064431395858877989, guid: 72d601a7be8a152418f667211f1e008d,
-    type: 3}
 --- !u!120 &53637382324009020
 LineRenderer:
   m_ObjectHideFlags: 0

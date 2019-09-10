@@ -7,6 +7,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
 
     public GameObject buildEffect;
+    public NodeUI nodeUI;
 
     GameObject turretToBuild;
 
@@ -45,7 +46,7 @@ public class BuildManager : MonoBehaviour
 
     public GameObject getTurretToBuild()
     {
-        return turretToBuild;
+        return this.turretToBuild;
     }
 
     public void showBuildEffect(Vector3 buildPosition)

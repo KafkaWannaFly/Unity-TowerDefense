@@ -14,6 +14,6 @@ public class Shop : MonoBehaviour
 
     public GameObject getSelectedItem()
     {
-        return selectedItem;
+        return this.selectedItem;
     }
 }
