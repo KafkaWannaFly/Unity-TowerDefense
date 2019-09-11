@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\MyTurret.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\NodeUI.cs" />
+    <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\PriceTag.cs" />
     <Compile Include="Assets\Scripts\SelfDestroy.cs" />
