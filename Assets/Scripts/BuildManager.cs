@@ -7,6 +7,7 @@ public class BuildManager : MonoBehaviour
     public static BuildManager instance;
 
     public GameObject buildEffect;
+    public GameObject sellEffect;
     public NodeUI nodeUI;
 
     GameObject turretToBuild;
@@ -49,8 +50,13 @@ public class BuildManager : MonoBehaviour
         return this.turretToBuild;
     }
 
-    public void showBuildEffect(Vector3 buildPosition)
+    public void showBuildEffect(Vector3 effectPosition)
     {
-        Instantiate(buildEffect, buildPosition, Quaternion.identity);
+        Instantiate(buildEffect, effectPosition, Quaternion.identity);
+    }
+
+    public void showSellEffect(Vector3 effectPosition)
+    {
+        Instantiate(sellEffect, effectPosition, Quaternion.identity);
     }
 }

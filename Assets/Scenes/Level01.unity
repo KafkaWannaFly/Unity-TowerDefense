@@ -3199,7 +3199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 347.10922, y: -270}
+  m_AnchoredPosition: {x: 352.1398, y: -270}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &568165826
@@ -3674,7 +3674,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1487857627}
-        m_MethodName: upgradeTurret
+        m_MethodName: sellTurret
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4175,7 +4175,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 347.10922, y: -160}
+  m_AnchoredPosition: {x: 352.1398, y: -160}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696337287
@@ -4815,6 +4815,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildEffect: {fileID: 6098285081069517595, guid: 2dd523b63cf05ee4db87eae469efb64b,
     type: 3}
+  sellEffect: {fileID: 7768243955052367597, guid: 275952be808a27a48a02ba1f016a28d1,
+    type: 3}
   nodeUI: {fileID: 1487857627}
 --- !u!114 &778701013
 MonoBehaviour:
@@ -4960,7 +4962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 347.10922, y: -50}
+  m_AnchoredPosition: {x: 352.1398, y: -50}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &823206623
@@ -6774,7 +6776,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258450315}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
   m_LocalPosition: {x: 0, y: 0, z: 2.9}
   m_LocalScale: {x: 0.15, y: 0.05, z: 1}
   m_Children:
@@ -6782,7 +6784,7 @@ RectTransform:
   - {fileID: 403411699}
   m_Father: {fileID: 1487857626}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 6}
@@ -7249,6 +7251,7 @@ MonoBehaviour:
   mainUI: {fileID: 1258450315}
   upgradeButton: {fileID: 1808197067}
   upgradeCost: {fileID: 225251084}
+  sellAmount: {fileID: 1944301930}
 --- !u!1 &1496531029
 GameObject:
   m_ObjectHideFlags: 0
@@ -8568,7 +8571,7 @@ GameObject:
   - component: {fileID: 1944301930}
   - component: {fileID: 1944301929}
   m_Layer: 5
-  m_Name: Price
+  m_Name: Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

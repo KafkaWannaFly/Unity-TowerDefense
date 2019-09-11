@@ -115,7 +115,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047719446042355853}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.48000145, y: 1.71, z: 1.920002}
+  m_LocalPosition: {x: 0.48000145, y: 1.1447461, z: 1.920002}
   m_LocalScale: {x: 100.00012, y: 100, z: 100.00012}
   m_Children: []
   m_Father: {fileID: 8075834141886118966}
@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2883276453940324707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.5652539, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5908882620537626531}
@@ -4935,10 +4935,12 @@ MonoBehaviour:
   slowDebuffPercentage: 0.7
   fireRate: 2
   bulletSpeed: 50
+  isUpgrade: 0
   bulletPrefab: {fileID: 6881365094883095007, guid: 97b3333a8aa55194781abff00301185f,
     type: 3}
   bulletInitialPosition: {fileID: 1517214556114265209}
   enemiesTag: Enemies
+  upgradedVersion: {fileID: 0}
 --- !u!120 &53637382324009020
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5060,7 +5062,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5346387932278311670}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.65, z: 0}
+  m_LocalPosition: {x: 0, y: 1.0847461, z: 0}
   m_LocalScale: {x: 100.00006, y: 100, z: 100.00006}
   m_Children: []
   m_Father: {fileID: 8075834141886118966}
@@ -9891,7 +9893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7919193719153956952}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.49525392, z: 0}
+  m_LocalPosition: {x: -0, y: -0.07, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 63.703358}
   m_Children: []
   m_Father: {fileID: 8075834141886118966}

@@ -82,6 +82,11 @@ public class Node : MonoBehaviour
         buildTurret();
     }
 
+    public GameObject getCurrentTurret()
+    {
+        return this.currentTurret;
+    }
+
     void buildTurret()
     {        
         if(currentTurret != null)
@@ -129,8 +134,15 @@ public class Node : MonoBehaviour
         }
     }
 
-    public GameObject getCurrentTurret()
+    public void sellTurret()
     {
-        return this.currentTurret;
+        if (currentTurret == null)
+            return;
+
+        PlayerStatus.instance.increaseMoney(currentTurret.GetComponent<MyTurret>().getSellPrice());
+
+        Destroy(this.currentTurret);
+
+        BuildManager.instance.showSellEffect(this.transform.position + offsetTurretPosition);
     }
 }

@@ -6,6 +6,7 @@ public class NodeUI : MonoBehaviour
     public GameObject mainUI;
     public Button upgradeButton;
     public Text upgradeCost;
+    public Text sellAmount;
 
     Node target;
 
@@ -21,10 +22,17 @@ public class NodeUI : MonoBehaviour
             this.hideNodeUI();
         }
 
-        if(target != null)
+        this.setUpgradeCostText();
+
+        this.setSellAmountText();
+    }
+
+    void setUpgradeCostText()
+    {
+        if (target != null)
         {
             GameObject currentTurret = target.getCurrentTurret();
-            if(currentTurret.GetComponent<MyTurret>().upgradedVersion == null)
+            if (currentTurret.GetComponent<MyTurret>().upgradedVersion == null)
             {
                 upgradeButton.interactable = false;
                 upgradeCost.text = "NONE";
@@ -35,6 +43,14 @@ public class NodeUI : MonoBehaviour
                 upgradeCost.text = currentTurret.GetComponent<MyTurret>().upgradedVersion.GetComponent<MyTurret>().cost.ToString();
             }
         }
+    }
+
+    void setSellAmountText()
+    {
+        if (this.target == null)
+            return;
+
+        this.sellAmount.text = this.target.getCurrentTurret().GetComponent<MyTurret>().getSellPrice().ToString();
     }
 
     public void setNodeUI(Node _target)
@@ -63,6 +79,12 @@ public class NodeUI : MonoBehaviour
     public void upgradeTurret()
     {
         this.target.upgradeTurret();
+    }
+
+    public void sellTurret()
+    {
+        this.target.sellTurret();
+        this.hideNodeUI();
     }
 
 }

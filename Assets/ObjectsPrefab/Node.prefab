@@ -106,4 +106,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultColor: {r: 1, g: 0.61960787, b: 0, a: 1}
   onMouseColor: {r: 0.23921567, g: 0.42253652, b: 1, a: 1}
-  offsetTurretPosition: {x: 0, y: -0.5, z: 0}
+  offsetTurretPosition: {x: 0, y: 0.5, z: 0}

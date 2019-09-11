@@ -185,4 +185,8 @@ public class MyTurret : MonoBehaviour
         return this.damage;
     }
 
+    public int getSellPrice()
+    {
+        return this.cost / 2;
+    }
 }
