@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public Text roundNum;
+    public SceneFader sceneFader;
 
     private void OnEnable()
     {
@@ -13,6 +14,6 @@ public class GameOver : MonoBehaviour
 
     public void retryLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        sceneFader.fadeToNextScene(SceneManager.GetActiveScene().name);
     }
 }

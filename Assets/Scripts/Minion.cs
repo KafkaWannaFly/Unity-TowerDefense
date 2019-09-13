@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 public class Minion : MonoBehaviour
 {
     [Header("Attribute")]
@@ -12,19 +12,23 @@ public class Minion : MonoBehaviour
 
     [Header("Unity Setup Field")]
     public GameObject dieEffect;
+    public Image heathBar;
 
     Transform target;
     int turnPointNum;
+    float startHP;
 
     private void Start()
     {
         turnPointNum = 0;
         speed = startSpeed;
+        startHP = HP;
     }
 
     private void Update()
     {
         navigateToEndPoint();
+        updateHealthBar();
     }
 
     void navigateToEndPoint()
@@ -72,6 +76,11 @@ public class Minion : MonoBehaviour
     public void takeSlowDebuff(float slowPercent)
     {
         this.speed = this.startSpeed * (1 - slowPercent);
+    }
+
+    void updateHealthBar()
+    {
+        this.heathBar.fillAmount = HP / startHP;
     }
 
     void die()

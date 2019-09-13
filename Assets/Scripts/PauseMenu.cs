@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public string mainMenuSceneName;
+    public SceneFader sceneFader;
 
     private void Start()
     {
@@ -31,6 +32,12 @@ public class PauseMenu : MonoBehaviour
             pauseMenuUI.SetActive(!pauseMenuUI.activeSelf);
             Time.timeScale = 0f;
         }
+    }
+
+    public void openMainMenu()
+    {
+        Time.timeScale = 1f;
+        sceneFader.fadeToNextScene(mainMenuSceneName);
     }
 
 }
