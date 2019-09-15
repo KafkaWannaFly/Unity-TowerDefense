@@ -3,8 +3,8 @@ using UnityEngine.UI;
 public class Minion : MonoBehaviour
 {
     [Header("Attribute")]
-    public float startSpeed = 20f;
-    //[HideInInspector]
+    public float startSpeed;
+    [HideInInspector]
     public float speed;
     public int damage;
     public float HP;
@@ -60,6 +60,7 @@ public class Minion : MonoBehaviour
     void theEnd()
     {
         PlayerStatus.instance.HP -= this.damage;
+        WaveSpawningControl.enemyAlive--;
         Destroy(this.gameObject);
     }
 
@@ -85,6 +86,7 @@ public class Minion : MonoBehaviour
 
     void die()
     {
+        WaveSpawningControl.enemyAlive--;
         Destroy(this.gameObject);
         Instantiate(this.dieEffect, this.transform.position, Quaternion.identity);
     }

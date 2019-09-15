@@ -5,15 +5,15 @@ using UnityEngine.UI;
 public class WaveSpawningControl : MonoBehaviour
 {
     static public WaveSpawningControl instance;
+    static public int enemyAlive = 0;
 
     public Transform spawningPoint;
-    public Transform minionPrefab;
 
-    public int totalWaveNumber;
     public float timeBetweenWaves;
 
+    public Wave[] wavesBlueprint;
+
     float countDown;
-    int minionsNum;
     int roundNum;
 
     public Text countDownTimer;
@@ -27,43 +27,55 @@ public class WaveSpawningControl : MonoBehaviour
 
     private void Start()
     {
-         countDown = 2f;
-         minionsNum = 1;
+         countDown = timeBetweenWaves;
          roundNum = 0;
     }
 
     private void Update()
     {
-        if (countDown <= 0 && totalWaveNumber > 0)
-        {
-            StartCoroutine(spawnTheMinions(minionsNum));
-            //spawnTheMinions(minionsNum);
-            countDown = timeBetweenWaves;
-            minionsNum++;
-            timeBetweenWaves++;
-            totalWaveNumber--;
-            roundNum++;
-        }
+        if (enemyAlive > 0)
+            return;
 
-        countDown -= Time.deltaTime;
-        if (countDown >= 0 && totalWaveNumber > 0)
+        showCountDownTimer();
+
+        if (countDown <= 0 && roundNum < wavesBlueprint.Length)
         {
-            countDownTimer.text = Mathf.Round(countDown).ToString();
+            StartCoroutine(spawnTheMinions(this.wavesBlueprint[roundNum]));
+            enemyAlive = this.wavesBlueprint[roundNum].enemyAmount;
+            roundNum++;
+            countDown = timeBetweenWaves;
         }
-      
+         countDown -= Time.deltaTime;
+
+        if(roundNum == wavesBlueprint.Length)
+        {
+            countDown = 0;
+            //Level complete here!
+            Debug.Log("Waves Complete!!");
+            //this.enabled = false;
+        }
     }
 
-    IEnumerator spawnTheMinions(int minionNum)
+    IEnumerator spawnTheMinions(Wave wave)
     {
-        for (int i = 0; i < minionNum; i++)
+        for (int i=0; i<wave.enemyAmount; i++)
         {
-            Instantiate(minionPrefab, spawningPoint.position, spawningPoint.rotation);
-            yield return new WaitForSeconds(0.2f);
+            Instantiate(wave.enemyPrefab, this.spawningPoint.position, Quaternion.identity);
+            yield return new WaitForSeconds(1f / wave.spawningRate);
         }
     }
 
     public int getRoundNum()
     {
         return this.roundNum;
+    }
+
+    void showCountDownTimer()
+    {
+        if (countDown < 0)
+        {
+            countDown = 0;
+        }
+        countDownTimer.text = string.Format("{0:00.00}", countDown);
     }
 }

@@ -5168,7 +5168,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 1e-45}
+  m_BoundingSphereOverride: {x: 8.95e-43, y: 637362, z: 4.5905e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5491,10 +5491,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawningPoint: {fileID: 407208819}
-  minionPrefab: {fileID: 4473058646966430009, guid: 60e34541a5149fa42bcd9dee08fc684a,
-    type: 3}
-  totalWaveNumber: 5
-  timeBetweenWaves: 2
+  timeBetweenWaves: 3
+  wavesBlueprint:
+  - enemyPrefab: {fileID: 2341457820553817256, guid: 65d0f0af7e693da4d951e29ce9501c2e,
+      type: 3}
+    enemyAmount: 1
+    spawningRate: 1
   countDownTimer: {fileID: 129173720}
 --- !u!4 &778701011
 Transform:
