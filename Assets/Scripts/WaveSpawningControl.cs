@@ -51,8 +51,11 @@ public class WaveSpawningControl : MonoBehaviour
         {
             countDown = 0;
             //Level complete here!
-            Debug.Log("Waves Complete!!");
             //this.enabled = false;
+            if(enemyAlive == 0)
+            {
+                PlayerStatus.instance.nextLevel();
+            }
         }
     }
 

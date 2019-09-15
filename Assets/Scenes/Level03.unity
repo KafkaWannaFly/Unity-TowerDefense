@@ -5168,7 +5168,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: -1.4258939e+16, z: 9.11e-43, w: -1.0383874e+16}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: NaN, w: 1.05e-43}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -5543,12 +5543,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMoney: 500
   HP: 1
-  levelIndex: 1
+  levelIndex: 3
   gameOver: {fileID: 1059646285}
   textMoney: {fileID: 699314576}
   textHP: {fileID: 1165458490}
   sceneFader: {fileID: 242032337}
-  nextLevelName: Level02
+  nextLevelName: Level04
 --- !u!114 &778701014
 MonoBehaviour:
   m_ObjectHideFlags: 0

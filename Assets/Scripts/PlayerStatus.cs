@@ -5,12 +5,17 @@ public class PlayerStatus : MonoBehaviour
 {
     static public PlayerStatus instance;
 
+    [Header("Attributes")]
     public int startMoney = 250;
     public int HP;
+    public int levelIndex;
 
+    [Header("UI Stuffs")]
     public GameObject gameOver;
     public Text textMoney;
     public Text textHP;
+    public SceneFader sceneFader;
+    public string nextLevelName;
 
     static public bool gameIsOver;
     int currentMoney;
@@ -82,6 +87,14 @@ public class PlayerStatus : MonoBehaviour
     {
         gameIsOver = true;
 
+        Debug.Log("Waves Complete!!");
+
         gameOver.SetActive(true);
+    }
+
+    public void nextLevel()
+    {
+        PlayerPrefs.SetInt(LevelsManager.reachedLevelKeyword, levelIndex);
+        sceneFader.fadeToNextScene(this.nextLevelName);
     }
 }
