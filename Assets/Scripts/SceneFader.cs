@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -43,6 +42,7 @@ public class SceneFader : MonoBehaviour
 
     public void fadeToNextScene(string sceneName)
     {
+        Time.timeScale = 1f;
         StartCoroutine(fadeOut(sceneName));
     }
 }

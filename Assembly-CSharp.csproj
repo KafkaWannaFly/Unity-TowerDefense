@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\TurretButton.cs" />
     <Compile Include="Assets\Scripts\Wave.cs" />
     <Compile Include="Assets\Scripts\WaveSpawningControl.cs" />
+    <Compile Include="Assets\Scripts\WinLevel.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Homework/Unity Projects/Unity-TowerDefense/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

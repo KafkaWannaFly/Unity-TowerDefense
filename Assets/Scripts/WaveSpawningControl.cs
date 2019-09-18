@@ -23,12 +23,13 @@ public class WaveSpawningControl : MonoBehaviour
         if (instance != null)
             return;
         instance = this;
+
+        this.roundNum = 0;
     }
 
     private void Start()
     {
-         countDown = timeBetweenWaves;
-         roundNum = 0;
+        countDown = timeBetweenWaves;
     }
 
     private void Update()
@@ -51,10 +52,10 @@ public class WaveSpawningControl : MonoBehaviour
         {
             countDown = 0;
             //Level complete here!
-            //this.enabled = false;
+
             if(enemyAlive == 0)
             {
-                PlayerStatus.instance.nextLevel();
+                PlayerStatus.instance.showWinLevelUI();
             }
         }
     }

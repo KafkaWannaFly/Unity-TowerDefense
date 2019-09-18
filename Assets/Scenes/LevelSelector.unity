@@ -766,7 +766,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.27e-43, y: -1.5588421e+30, z: 4.5904e-41, w: -1.1766962e+27}
+  m_BoundingSphereOverride: {x: NaN, y: 0, z: 0, w: 4.1016e-41}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1143,8 +1143,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1719020751}
   m_HandleRect: {fileID: 1719020750}
   m_Direction: 2
-  m_Value: 0.99999994
-  m_Size: 0.5483603
+  m_Value: 0.9999999
+  m_Size: 0.54940766
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1418,7 +1418,7 @@ GameObject:
   - component: {fileID: 1828687796}
   - component: {fileID: 1828687795}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ResetButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
