@@ -5,7 +5,6 @@ public class Node : MonoBehaviour
 {
     public Color defaultColor;
     public Color onMouseColor;
-    public Vector3 offsetTurretPosition;
 
     GameObject currentTurret;
 
@@ -100,9 +99,9 @@ public class Node : MonoBehaviour
             return;
         }
 
-        this.currentTurret = Instantiate(turret, this.transform.position + offsetTurretPosition, this.transform.rotation);
+        this.currentTurret = Instantiate(turret, this.transform.position , this.transform.rotation);
 
-        BuildManager.instance.showBuildEffect(this.transform.position + offsetTurretPosition);
+        BuildManager.instance.showBuildEffect(this.transform.position );
 
         PlayerStatus.instance.buyTurret(turret.GetComponent<MyTurret>());
     }
@@ -127,9 +126,9 @@ public class Node : MonoBehaviour
 
                 Destroy(this.currentTurret);
 
-                this.currentTurret = Instantiate(myTurret.upgradedVersion, this.transform.position + offsetTurretPosition, this.transform.rotation);
+                this.currentTurret = Instantiate(myTurret.upgradedVersion, this.transform.position, this.transform.rotation);
 
-                BuildManager.instance.showBuildEffect(this.transform.position + offsetTurretPosition);
+                BuildManager.instance.showBuildEffect(this.transform.position);
             }
         }
     }
@@ -143,6 +142,6 @@ public class Node : MonoBehaviour
 
         Destroy(this.currentTurret);
 
-        BuildManager.instance.showSellEffect(this.transform.position + offsetTurretPosition);
+        BuildManager.instance.showSellEffect(this.transform.position);
     }
 }

@@ -104,6 +104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1dde736c7c7a014ebce65014ea5b83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 1, g: 0.61960787, b: 0, a: 1}
-  onMouseColor: {r: 0.23921567, g: 0.42253652, b: 1, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  onMouseColor: {r: 0.4198113, g: 0.79385984, b: 1, a: 1}
   offsetTurretPosition: {x: 0, y: 0.5, z: 0}

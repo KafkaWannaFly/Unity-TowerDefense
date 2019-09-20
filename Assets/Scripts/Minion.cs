@@ -13,6 +13,7 @@ public class Minion : MonoBehaviour
     [Header("Unity Setup Field")]
     public GameObject dieEffect;
     public Image heathBar;
+    public Vector3 selfOffsetPosition;
 
     Transform target;
     int turnPointNum;
@@ -89,5 +90,10 @@ public class Minion : MonoBehaviour
         WaveSpawningControl.enemyAlive--;
         Destroy(this.gameObject);
         Instantiate(this.dieEffect, this.transform.position, Quaternion.identity);
+    }
+
+    void offsetPosition()
+    {
+        this.gameObject.transform.position += this.selfOffsetPosition;
     }
 }
