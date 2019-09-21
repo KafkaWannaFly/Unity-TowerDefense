@@ -30,6 +30,7 @@ public class Minion : MonoBehaviour
     {
         navigateToEndPoint();
         updateHealthBar();
+        offsetPosition();
     }
 
     void navigateToEndPoint()
@@ -94,6 +95,9 @@ public class Minion : MonoBehaviour
 
     void offsetPosition()
     {
-        this.gameObject.transform.position += this.selfOffsetPosition;
+        float temp = selfOffsetPosition.y;
+        selfOffsetPosition = this.gameObject.transform.position;
+        selfOffsetPosition.y = temp;
+        this.gameObject.transform.position = selfOffsetPosition;
     }
 }

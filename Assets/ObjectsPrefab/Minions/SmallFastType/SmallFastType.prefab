@@ -204,6 +204,7 @@ MonoBehaviour:
   dieEffect: {fileID: 2122246408276665192, guid: 35e56949fbdd868438e6c58895af3a3c,
     type: 3}
   heathBar: {fileID: 8845895336739594329}
+  selfOffsetPosition: {x: 0, y: 1, z: 0}
 --- !u!1 &6262885122640035981
 GameObject:
   m_ObjectHideFlags: 0
